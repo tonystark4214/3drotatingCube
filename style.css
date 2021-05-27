@@ -1,0 +1,141 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: black;
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective-origin: 50% 25%;
+}
+.box{
+    height: 500px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: rotate 10s infinite linear;
+    transform-style: preserve-3d;
+    position: relative;
+    margin:170px auto;
+}
+@keyframes rotate{
+    to {transform: rotateY(360deg);}
+}
+.ball{
+    height:120px;
+    width:120px;
+    background: rgb(159, 208, 223);
+    position: absolute;
+    top:28px;
+    border-radius: 50%;
+    animation:
+    jump 2s infinite ease-out,
+    rotate 10s infinite linear reverse;
+    /*box-shadow: 0px -55px 40px -15px rgb(5, 5, 5) inset;*/
+    background-image: radial-gradient(
+        circle at top,
+        lightblue,
+        #000
+    );
+}
+@keyframes jump {
+    0%, 100%{
+        top:220px;
+    }
+    50%{
+        top:-30px;
+        animation-timing-function: ease-in;
+    }
+}
+.ballShadow{
+    height: 100%;
+    width:100%;
+    position: absolute;
+    animation: shadow 2s infinite ease-out;
+    background-image: radial-gradient( rgba(0, 0, 0, 0.979), rgba(0, 0, 0, 0.404) 100%)
+}
+@keyframes shadow {
+    0%,100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+    50%{
+        transform: scale(2);
+        opacity: 0.7;
+        animation-timing-function: ease-in;  
+    }
+}
+.cube{
+    height: 200px;
+    width: 200px;
+    bottom: 0;
+    background-color:transparent;
+    position: absolute;
+    transform-style: preserve-3d;
+    transform: translateZ(-100px);
+    animation: shrink 2s infinite linear;
+}
+@keyframes shrink {
+    11.6%,95%{
+        height: 200px;
+    }
+    0%,100%{
+        height: 160px;   
+    }
+}
+.cube div{
+    box-shadow: 2px 2px 35px 20px teal inset;
+}
+/*.bottom{
+    transform: rotateX(-90deg);
+    transform-origin: bottom;
+    background:skyblue;
+    opacity:0.3;
+    height: 200px;
+    width: 200px;
+    position: absolute;
+}*/
+.top{
+    transform: rotateX(90deg);
+    transform-origin: top;
+    opacity: 1;
+    background:#0ff7;
+    height: 200px;
+    width: 200px;
+    position:absolute;
+    overflow: hidden;
+}
+.left{
+    transform: rotateY(-90deg);
+    transform-origin: left;
+    background:skyblue;
+    opacity:0.4;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+.right{
+    transform: rotateY(90deg);
+    transform-origin: right;
+    background:skyblue;
+    opacity:0.4;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+.back{
+    height: 100%;
+    width: 100%; 
+    position: absolute;
+    background:skyblue;
+    opacity:0.4;
+}
+.front{
+    background:skyblue;
+    opacity:0.2;
+    height: 100%;
+    width: 100%; 
+    position: absolute;
+    transform: translateZ(200px);
+}
